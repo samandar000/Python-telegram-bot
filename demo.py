@@ -260,6 +260,7 @@ def addresses(update,context):
         resize_keyboard=True
     )
     bot.sendMessage(chat_id,text=text,reply_markup=keyboard)
+    
     query.answer('Working...')
 
 def addcard(update, context):
@@ -276,7 +277,7 @@ updater.dispatcher.add_handler(CommandHandler('help', Help))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('🏬 Catalog'),catalog))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('👤 Userinfo'),userinfo))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('🎛 Administration'),administration))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('🚪 Exit'),start))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('🚪 Exit'),  ))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('🤑 Bonus rate'),newbonus))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('❌ Cancel'),administration))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('➕ Add category'),noavailable))
@@ -291,12 +292,12 @@ updater.dispatcher.add_handler(MessageHandler(Filters.text('👥 Users'),user))
 updater.dispatcher.add_handler(InlineQueryHandler(catalogquery,pattern='🍕 pizza'))
 
 updater.dispatcher.add_handler(CallbackQueryHandler(addcard,pattern='addcard'))
-updater.dispatcher.add_handler(CallbackQueryHandler(cancel,pattern='cancel'))
-updater.dispatcher.add_handler(CallbackQueryHandler(accept,pattern='accept'))
-updater.dispatcher.add_handler(CallbackQueryHandler(clear,pattern='clear'))
-updater.dispatcher.add_handler(CallbackQueryHandler(plaseorder,pattern='plaseorder'))
-updater.dispatcher.add_handler(CallbackQueryHandler(addaddress,pattern='addaddress'))
-updater.dispatcher.add_handler(CallbackQueryHandler(addresses,pattern='addresses'))
+# updater.dispatcher.add_handler(CallbackQueryHandler(cancel,pattern='cancel'))
+# updater.dispatcher.add_handler(CallbackQueryHandler(accept,pattern='accept'))
+# updater.dispatcher.add_handler(CallbackQueryHandler(clear,pattern='clear'))
+# updater.dispatcher.add_handler(CallbackQueryHandler(plaseorder,pattern='plaseorder'))
+# updater.dispatcher.add_handler(CallbackQueryHandler(addaddress,pattern='addaddress'))
+# updater.dispatcher.add_handler(CallbackQueryHandler(addresses,pattern='addresses'))
 
 updater.start_polling()
 updater.idle()
